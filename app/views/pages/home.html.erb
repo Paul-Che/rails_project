@@ -1,2 +1,11 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class=wrapper>
+	<div class="container">
+		<h1 class="text-center">All gyms</h1>
+		<% @gyms["gyms"].each do |gym| %>
+			<div class="card">
+				<h2>Nom de la gym : <%= gym["name"] %></h2>
+				<h2>Adresse : <%= gym["address"] %></h2>
+			</div>
+		<% end %>
+	</div>
+</div>
