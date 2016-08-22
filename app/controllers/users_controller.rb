@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 	require 'rest_client'
+	require 'json'
 
 	USERNAME = "0600000001" # needed to access the APi
 	PASSWORD = "12345" # needed to access the APi
@@ -9,8 +10,8 @@ class UsersController < ApplicationController
 
 	def oauth
 		token = RestClient.post "#{API_BASE_URL}/oauth/token", {"username": USERNAME, "password": PASSWORD, "grant_type": "password"}, {Content_type: 'application/json'}
-		hash = JSON.parse(token, :symbolize_names => true)
-		@access_token = hash[:access_token]
+		@hash = JSON.parse(token, :symbolize_names => true)
+		# @access_token = hash[:access_token]
 	end
 
 	def get_coaches
